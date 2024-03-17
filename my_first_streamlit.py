@@ -28,7 +28,8 @@ ingredients_list=st.multiselect (
 
 # new addition for fruit choices
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-st.text(fruityvice_response)
+fv_df=st.datafarme(data=fruityvice_response.json(),use_container_width=True)
+st.write(fv_df)
 
 
 if len(ingredients_list)!=0:           
