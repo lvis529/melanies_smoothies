@@ -1,6 +1,7 @@
 # Import python packages
 import streamlit as st
 from snowflake.snowpark.functions import col
+import requests
 
 # Write directly to the app 
 st.title(":cup_with_straw: Choose your favourite smoothie:cup_with_straw:")
@@ -24,6 +25,10 @@ ingredients_list=st.multiselect (
     max_selections=5
     
 )   
+
+# new addition for fruit choices
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+st.text(fruityvice_response)
 
 
 if len(ingredients_list)!=0:           
